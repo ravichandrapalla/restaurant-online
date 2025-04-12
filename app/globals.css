@@ -2,11 +2,19 @@
 
 :root {
   --text-base: "16px";
+  --background: "bg-[#FFF8EE]";
 }
 
 body {
-  background: var(--background);
+  background-color: "bg-[#FFF8EE]";
   color: var(--foreground);
   font-family: "Manrope Variable", sans-serif;
   box-sizing: "border-box";
+}
+/* app/globals.css */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
