@@ -28,10 +28,10 @@ export default function Button({
   disabled,
   ...props
 }) {
-  const Comp = asChild ? "span" : "button";
+  const Component = asChild ? "span" : "button";
 
   return (
-    <Comp
+    <Component
       className={clsx(
         "inline-flex items-center justify-center rounded-md text-sm cursor-pointer font-medium transition-colors focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none",
         buttonVariants[variant],
@@ -43,6 +43,6 @@ export default function Button({
     >
       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
       {children}
-    </Comp>
+    </Component>
   );
 }
