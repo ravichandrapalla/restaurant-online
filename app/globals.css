@@ -2,11 +2,11 @@
 
 :root {
   --text-base: "16px";
-  --background: "bg-[#FFF8EE]";
+  --background: "black";
 }
 
 body {
-  background-color: "bg-[#FFF8EE]";
+  background-color: "black";
   color: var(--foreground);
   font-family: "Manrope Variable", sans-serif;
   box-sizing: "border-box";
