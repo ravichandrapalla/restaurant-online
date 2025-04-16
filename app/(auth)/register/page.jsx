@@ -5,9 +5,11 @@ import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
 import { BaseRegistrationSchema } from "@/validators/auth/registrationSchema";
 import MultiStepRegistrationForm from "@/components/registration/MultiStepRegistrationForm";
+import SignInClient from "@/components/lib/SignInClient";
 
 // const RegistrationUI = dynamic(() => import("@/app/(auth)/register/page"), {
-//   ssr: false,
+//   ssr: false,import { DevtoolsInjectOptions } from './../../../node_modules/preact/debug/src/internal.d';
+
 // });
 const Tabs = ["user", "address"];
 
@@ -67,10 +69,8 @@ const Page = () => {
     }
   };
   const handleTabChange = (direction) => {
-    console.log("button triggered");
     const currIndex = Tabs.indexOf(currentTab);
     let nextIndex = direction === "next" ? currIndex + 1 : currIndex - 1;
-    console.log(nextIndex, Tabs[nextIndex]);
     if (nextIndex < 0 || nextIndex >= Tabs.length) return;
     setCurrentTab(Tabs[nextIndex]);
   };
@@ -98,6 +98,9 @@ const Page = () => {
         >
           Next
         </Button>
+      </div>
+      <div>
+        <SignInClient>Sign in with Google</SignInClient>
       </div>
     </div>
   );

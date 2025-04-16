@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaCartShopping } from "react-icons/fa6";
 import Button from "./Button";
 import Link from "next/link";
+import SignInClient from "../lib/SignInClient";
 
 const Header = () => {
   return (
@@ -35,9 +36,10 @@ const Header = () => {
       <button className="px-2 py-1 bg-red-500 rounded-xl text-white">
         Login
       </button>
-      <Button asChild={true}>
+      {/* <Button asChild={true}>
         <Link href="/register">Register</Link>
-      </Button>
+      </Button> */}
+      <SignInClient>Sign in with Google</SignInClient>
     </header>
   );
 };
