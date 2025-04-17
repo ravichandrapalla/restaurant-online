@@ -1,24 +1,33 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaCartShopping } from "react-icons/fa6";
-import Button from "./Button";
 import Link from "next/link";
-import SignInClient from "../lib/SignInClient";
+import AccountComponent from "../AccountComponent";
+
+const NavLinks = [
+  { name: "HOME", path: "/" },
+  { name: "DISHES", path: "/dishes" },
+  { name: "ABOUT", path: "/about" },
+  { name: "CONTACT", path: "/contact" },
+];
 
 const Header = () => {
+  console.log("header is rendering");
   return (
-    <header className="h-22 flex items-center justify-around shadow-lg bg-[#FFF8EE]">
+    <header className="h-22 flex items-center justify-around shadow-lg ">
       <Image alt="logo" src="/Logo.svg" height={70} width={70} />
       <ul className="list-none flex gap-x-4 text-base font-semibold">
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>ITEMS</li>
-        <li>PAGES</li>
-        <li>CONTACT</li>
+        {Array.isArray(NavLinks) &&
+          NavLinks.map((link) => (
+            <li key={link.name} className="cursor-pointer">
+              <Link href={link.path}>{link.name?.toLocaleUpperCase()}</Link>
+            </li>
+          ))}
       </ul>
       <div className=" flex gap-x-4 text-white">
         <div className="bg-[#2A435D] w-10 h-10 flex items-center justify-center rounded-4xl relative">
-          <div className="absolute text-xs z-50 top-[-10] left-[-10] bg-[tomato] w-6 h-6 rounded-4xl flex items-center justify-center">
+          <div className="absolute text-xs z-50 top-[-10] left-[-10]  w-6 h-6 rounded-4xl flex items-center justify-center">
             2
           </div>
           <FaCartShopping size={22} color="white" />
@@ -32,14 +41,7 @@ const Header = () => {
           <Image src="/Scooter_Logo.svg" alt="scooter" height={23} width={23} />
         </article>
       </div>
-
-      <button className="px-2 py-1 bg-red-500 rounded-xl text-white">
-        Login
-      </button>
-      {/* <Button asChild={true}>
-        <Link href="/register">Register</Link>
-      </Button> */}
-      <SignInClient>Sign in with Google</SignInClient>
+      <AccountComponent />
     </header>
   );
 };
